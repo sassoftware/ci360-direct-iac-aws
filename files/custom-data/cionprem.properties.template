@@ -1,0 +1,15 @@
+instanceid=CI360Direct_app_10090
+listenport=10090
+shutdownport=10091
+brokerurl=tcp://{NEW_HOST_INT}:61616
+brokerUserName=sas
+dbhostport={NEW_HOST_INT}:9432
+gatewayHost={CI_360_GW_HOST}
+tenantID={CI_360_TENANT_ID}
+sasUserId=sasadm@saspw
+proxyHost=
+proxyPort=
+nonProxyHosts=
+proxyUser=
+proxyRealm=
+disablemetaupload=true

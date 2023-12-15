@@ -1,0 +1,25 @@
+
+# This file contains all the configurations required for the amiautomation.sh script
+# Do not modify the parameters unless you are absolutly sure about what you are doing
+META_PASS=<unencoded meta password for sasadm@saspw>
+CI_360_TENANT_ID=<CI 360 tenant id>
+CI_360_AGENT_NAME=<CI 360 agent name>
+CI_360_CLIENT_SECRET=<CI 360 secret>
+CI_360_GW_HOST=extapigwservice-training.ci360.sas.com
+
+# Configs for ci360-download-client-sas
+CI_360_DSC_MART_NM=cdm
+CI_360_DSC_SCHEMA_VERSION=10
+CI_360_DSC_CATEGORY=cdm
+
+# DO NOT Change following
+OLD_HOST="sas-ci360-ed-lnx.ec2.internal"
+AMI_ATUMATION_DIR=/sas/amiautomation
+AMI_AUTOMATION_TMP_DIR=/sas/amiautomation/temp
+AMI_AUTOMATION_LOG_DIR=/sas/amiautomation/logs
+SAS_CONFIG_DIR=/sas/sasconfig
+SAS_HOME_DIR=/sas/sashome
+SSL_CERT_LOCATION=$SAS_CONFIG_DIR/Lev1/Web/WebServer/ssl
+NEW_HOST=$(curl -s http://169.254.169.254/latest/meta-data/public-hostname)
+NEW_HOST_INT=$HOSTNAME
+LICFILE=/sas/amiautomation/license.txt

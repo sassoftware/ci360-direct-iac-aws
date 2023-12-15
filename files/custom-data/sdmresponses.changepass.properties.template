@@ -1,0 +1,65 @@
+# Response file for the SAS Deployment Wizard
+# Created: Jan 10, 2023 5:36:56 AM
+#
+# Responses with multiple options are separated with / characters.
+
+# Select SAS Deployment Manager Task
+# The SAS Deployment Manager provides tasks to help you manage your software deployments. Select the task you want to perform.
+#MANAGE_TASK=password/rebuild/DeployWebApps/remove/renewalLicense/updatesid/changehost/applyhotfix/maintenance/changepassphrase/localesetupmgr/autoload/uninstall/deployagent_config/deployagent_start/deployagent_stop/deployagent_pushcred/deployagent_pullcred/hadoop_client/hadoop_tkindbsrv/foundation/certframe_add/certframe_remove
+ MANAGE_TASK=password
+
+# Select Configuration Directory/Level
+# Select the configuration directory and the level within the configuration directory to manage.
+#CONFIGURATION_DIRECTORY=<full path>
+ CONFIGURATION_DIRECTORY={SAS_CONFIG_DIR}
+#CONFIGURATION_LEVEL=<subdirectory>
+ CONFIGURATION_LEVEL=Lev1
+
+# Specify Connection Information
+# Specify connection information to the SAS Metadata Server.
+#CONNECT_HOST=<string value>
+ CONNECT_HOST={NEW_HOST}
+#CONNECT_PORT=<port number value>
+ CONNECT_PORT=8561
+#CONNECT_USER=<user name value>
+ CONNECT_USER=sasadm@saspw
+#CONNECT_PASSWORD=<password value>
+ CONNECT_PASSWORD={sas002}934C27221C7C59F2375D26654839BC55576B0D054EA02E6B
+
+# SAS Web Infrastructure Database JDBC Properties
+# Specify the connection information for the SAS Web Infrastructure Database JDBC connection.
+#DATABASE_HOST=<host name value>
+ DATABASE_HOST={NEW_HOST}
+#DATABASE_USER=<user name value>
+ DATABASE_USER=SharedServices
+#DATABASE_PASSWORD=<password value>
+ DATABASE_PASSWORD={sas002}934C27221C7C59F2375D26654839BC55576B0D054EA02E6B
+
+# Select User IDs
+# Select the user IDs for which the passwords should be updated.
+ USER_SELECTION1=Not Applicablesasevs@saspw
+ PASSWORD_FORsasevs@saspw={META_PASS_ENC}
+ USER_SELECTION2=Not Applicablesasevdb
+ PASSWORD_FORsasevdb={META_PASS_ENC}
+ USER_SELECTION3=Not ApplicableEVManager
+ PASSWORD_FOREVManager={META_PASS_ENC}
+ USER_SELECTION4=Not Applicablevdbadm
+ PASSWORD_FORevdbadm={META_PASS_ENC}
+ USER_SELECTION5=Not Applicablevatadm
+ PASSWORD_FORvatadm={META_PASS_ENC}
+ USER_SELECTION6=Not Applicablesassearch@saspw
+ PASSWORD_FORsassearch@saspw={META_PASS_ENC}
+ USER_SELECTION7=Not Applicabletdadm
+ PASSWORD_FORsasevs@saspw={META_PASS_ENC}
+ USER_SELECTION8=Not Applicablewebanon@saspw
+ PASSWORD_FORwebanon@saspw={META_PASS_ENC}
+ USER_SELECTION9=Not Applicablesastrust@saspw
+ PASSWORD_FORsastrust@saspw={META_PASS_ENC}
+ USER_SELECTION10=Not Applicablesasadm@saspw
+ PASSWORD_FORsadm@saspw={META_PASS_ENC}
+ USER_SELECTION11=Not ApplicableSharedServices
+ PASSWORD_FORSharedServices={META_PASS_ENC}
+ USER_SELECTION12=DefaultAuthsassrv
+ PASSWORD_FORsassrv={META_PASS_ENC}
+ USER_SELECTION13=Not Applicabledbmsowner
+ PASSWORD_FORdbmsowner={META_PASS_ENC}

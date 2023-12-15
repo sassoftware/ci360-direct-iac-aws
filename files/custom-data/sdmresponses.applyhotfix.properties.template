@@ -1,0 +1,16 @@
+# Response file for resuming the SAS Deployment Wizard
+# Created: Aug 28, 2023 2:37:49 PM
+
+# Select SAS Deployment Manager Task
+# The SAS Deployment Manager provides tasks to help you manage your software deployments. Select the task you want to perform.
+#MANAGE_TASK=password/rebuild/DeployWebApps/remove/renewalLicense/updatesid/changehost/applyhotfix/maintenance/changepassphrase/localesetupmgr/autoload/uninstall/deployagent_config/deployagent_start/deployagent_stop/deployagent_pushcred/deployagent_pullcred/hadoop_client/hadoop_tkindbsrv/foundation/certframe_add/certframe_remove
+ MANAGE_TASK=applyhotfix
+
+# Apply Hot Fixes
+# This task will process hot fixes for your software.
+#HOTFIX_PACKAGE_DIR=<full path>
+ HOTFIX_PACKAGE_DIR={AMI_ATUMATION_DIR}/hf
+#HOTFIX_INSTALL=yes/no
+ HOTFIX_INSTALL=yes
+#HOTFIX_CONFIGURE=yes/no
+ HOTFIX_CONFIGURE=no
