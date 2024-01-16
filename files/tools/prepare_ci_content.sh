@@ -20,7 +20,7 @@ echo "Download repos from gitlab..."
 TMPDIR=$(mktemp -d)
 cd $TMPDIR
 git clone https://gitlab.sas.com/retail-incubation/ci-assets-refactoring/chagentstream-queues.git
-git clone https://gitlab.sas.com/retail-incubation/ci-assets-refactoring/idmapping.git
+git clone https://gitlab.sas.com/retail-incubation/ci-assets-refactoring/ci360-new-identities-uploader.git
 git clone https://gitlab.sas.com/retail-incubation/ci-assets-refactoring/uploading-customer-data-to-cloud-datahub.git
 git clone https://gitlab.sas.com/retail-incubation/ci-assets-refactoring/ci360-gdpr-delete.git
 scp -r $TMPDIR/* ec2-user@${LIN_IP}:/sas/software
