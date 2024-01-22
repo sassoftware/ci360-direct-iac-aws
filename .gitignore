@@ -2,7 +2,7 @@
 **/.terraform/*
 
 *.plan
-*.txt
+/files/**/*.txt
 *.log
 
 # .tfstate files
