@@ -68,7 +68,7 @@ sed -i \
     -e "s/^\s*%let api_agent\b.*$/%let api_agent = '${CI_360_AGENT_NAME}';/g" \
     -e "s/^\s*%let api_tenant\b.*$/%let api_tenant = '${CI_360_TENANT_ID}';/g" \
     -e "s/^\s*%let api_secret\b.*$/%let api_secret = '${CI_360_CLIENT_SECRET}';/g" \
-    idmapping/initialize_parameter.sas
+    ci360-new-identities-uploader/initialize_parameter.sas
 
 sed -i \
     -e "s/^\s*%let CI360_server\b.*$/%let CI360_server=${CI_360_GW_HOST};/g" \
@@ -80,7 +80,7 @@ sed -i \
     -e "s/^\s*%let CI360_server\b.*$/%let CI360_server=${CI_360_GW_HOST};/g" \
     -e "s/^\s*%let DSC_TENANT_ID\b.*$/%let DSC_TENANT_ID=%str(${CI_360_TENANT_ID});/g" \
     -e "s/^\s*%let DSC_SECRET_KEY\b.*$/%let DSC_SECRET_KEY=%str(${CI_360_CLIENT_SECRET});/g" \
-    uploading-customer-data-to-cloud-datahub/initialize_parameter.sas
+    ci360-customer-data-uploader/initialize_parameter.sas
 
 echo $(date '+%Y-%m-%d %H:%M:%S')
 echo "Run CDM DDL..."
@@ -105,7 +105,7 @@ ${SAS_HOME_DIR}/SASFoundation/9.4/bin/sas_u8 -metaautoresources 'SASApp' -metaSe
 echo $(date '+%Y-%m-%d %H:%M:%S')
 
 echo $(date '+%Y-%m-%d %H:%M:%S')
-echo "Build chagentstream..."
+echo "Build ci360-events-to-db-agent..."
 cd /sas/software
 sed -i -e "s/^\s*ci360.gatewayHost=.*$/ci360.gatewayHost=${CI_360_GW_HOST}/g" \
     -e "s/^\s*ci360.tenantID=.*$/ci360.tenantID=${CI_360_TENANT_ID}/g" \
@@ -113,11 +113,11 @@ sed -i -e "s/^\s*ci360.gatewayHost=.*$/ci360.gatewayHost=${CI_360_GW_HOST}/g" \
     -e "s/^\s*spring.datasource.url=.*$/spring.datasource.url=jdbc:postgresql:\/\/${PG_ADDRESS}:5432\/ci/g" \
     -e "s/^\s*spring.datasource.username=.*$/spring.datasource.username=pgadmin/g" \
     -e "s/^\s*spring.datasource.password=.*$/spring.datasource.password=${PG_PASS}/g" \
-    chagentstream-queues/src/main/resources/application.properties
+    ci360-events-to-db-agent/src/main/resources/application.properties
 
 curl -O https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.tar.gz
 tar xzvf apache-maven-3.9.6-bin.tar.gz
-cd /sas/software/chagentstream-queues
+cd /sas/software/ci360-events-to-db-agent
 unzip -d /sas/software mkt-agent-sdk-2.2311.2309271430.zip
 /sas/software/apache-maven-3.9.6/bin/mvn install:install-file -Dfile="/sas/software/mkt-agent-sdk-2.2311.2309271430/lib/mkt-agent-sdk-jar-2.2311.2309271430.jar" -DpomFile="/sas/software/mkt-agent-sdk-2.2311.2309271430/sdk/pom.xml"
 ./gradlew build
