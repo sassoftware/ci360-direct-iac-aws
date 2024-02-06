@@ -16,19 +16,6 @@ ssh ec2-user@${LIN_IP} bash -s << EOF
 EOF
 
 echo $(date '+%Y-%m-%d %H:%M:%S')
-echo "Download repos from gitlab..."
-TMPDIR=$(mktemp -d)
-cd $TMPDIR
-git clone https://gitlab.sas.com/retail-incubation/ci-assets-refactoring/ci360-events-to-db-agent.git
-git clone https://gitlab.sas.com/retail-incubation/ci-assets-refactoring/ci360-new-identities-uploader.git
-git clone https://gitlab.sas.com/retail-incubation/ci-assets-refactoring/ci360-customer-data-uploader.git
-git clone https://gitlab.sas.com/retail-incubation/ci-assets-refactoring/ci360-gdpr-delete.git
-scp -r $TMPDIR/* ec2-user@${LIN_IP}:/sas/software
-cd -
-rm -rf $TMPDIR
-ssh ec2-user@${LIN_IP} 'sudo chmod -R 777 /sas/software'
-
-echo $(date '+%Y-%m-%d %H:%M:%S')
 echo "Install python modules..."
 ssh ec2-user@${LIN_IP} bash -s << EOF
     sudo -i bash -c 'pip install PyJWT'
