@@ -10,10 +10,10 @@ echo $(date '+%Y-%m-%d %H:%M:%S')
 export TF_VAR_winclient_vm_ami_id="$(aws ec2 describe-images --filters 'Name=name,Values=sas-ci360-ed-windows-v1.0' --output text --query 'Images[0].ImageId')"
 
 terraform init
-terraform plan -out ci-engage.plan
+terraform plan -out ci360-direct-fullcloud.plan
 echo $(date '+%Y-%m-%d %H:%M:%S')
 
-terraform apply ci-engage.plan
+terraform apply ci360-direct-fullcloud.plan
 echo $(date '+%Y-%m-%d %H:%M:%S')
 
 LIN_SERVER_ID="$(terraform output -raw linserver_instance_id)"

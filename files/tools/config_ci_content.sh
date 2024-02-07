@@ -62,25 +62,25 @@ sed -i -e "s/^\s*%let UtilityLocation=.*$/%let UtilityLocation=\/sas\/software\/
     -e "s/^\s*%let DSC_LOAD_END_DTTM=%nrquote.*$//g" \
     ci360-download-client-sas/macros/dsc_download.sas
 
-git clone https://github.com/sassoftware/ci360-directengage-samples.git
+git clone https://github.com/sassoftware/ci360-direct-samples.git
 sed -i \
     -e "s/^\s*%let ci360_env\b.*$/%let ci360_env = `echo ${CI_360_GW_HOST} | cut -d '-' -f2`;/g" \
     -e "s/^\s*%let api_agent\b.*$/%let api_agent = '${CI_360_AGENT_NAME}';/g" \
     -e "s/^\s*%let api_tenant\b.*$/%let api_tenant = '${CI_360_TENANT_ID}';/g" \
     -e "s/^\s*%let api_secret\b.*$/%let api_secret = '${CI_360_CLIENT_SECRET}';/g" \
-    ci360-directengage-samples/ci360-new-identities-uploader/initialize_parameter.sas
+    ci360-direct-samples/ci360-new-identities-uploader/initialize_parameter.sas
 
 sed -i \
     -e "s/^\s*%let CI360_server\b.*$/%let CI360_server=${CI_360_GW_HOST};/g" \
     -e "s/^\s*%let DSC_TENANT_ID\b.*$/%let DSC_TENANT_ID=%str(${CI_360_TENANT_ID});/g" \
     -e "s/^\s*%let DSC_SECRET_KEY\b.*$/%let DSC_SECRET_KEY=%str(${CI_360_CLIENT_SECRET});/g" \
-    ci360-directengage-samples/ci360-gdpr-delete/initialize_parameter.sas
+    ci360-direct-samples/ci360-gdpr-delete/initialize_parameter.sas
 
 sed -i \
     -e "s/^\s*%let CI360_server\b.*$/%let CI360_server=${CI_360_GW_HOST};/g" \
     -e "s/^\s*%let DSC_TENANT_ID\b.*$/%let DSC_TENANT_ID=%str(${CI_360_TENANT_ID});/g" \
     -e "s/^\s*%let DSC_SECRET_KEY\b.*$/%let DSC_SECRET_KEY=%str(${CI_360_CLIENT_SECRET});/g" \
-    ci360-directengage-samples/ci360-customer-data-uploader/initialize_parameter.sas
+    ci360-direct-samples/ci360-customer-data-uploader/initialize_parameter.sas
 
 echo $(date '+%Y-%m-%d %H:%M:%S')
 echo "Run CDM DDL..."
@@ -112,11 +112,11 @@ sed -i -e "s/^\s*ci360.gatewayHost=.*$/ci360.gatewayHost=${CI_360_GW_HOST}/g" \
     -e "s/^\s*spring.datasource.url=.*$/spring.datasource.url=jdbc:postgresql:\/\/${PG_ADDRESS}:5432\/ci/g" \
     -e "s/^\s*spring.datasource.username=.*$/spring.datasource.username=pgadmin/g" \
     -e "s/^\s*spring.datasource.password=.*$/spring.datasource.password=${PG_PASS}/g" \
-    ci360-directengage-samples/ci360-events-to-db-agent/src/main/resources/application.properties
+    ci360-direct-samples/ci360-events-to-db-agent/src/main/resources/application.properties
 
 curl -O https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.tar.gz
 tar xzvf apache-maven-3.9.6-bin.tar.gz
-cd /sas/software/ci360-directengage-samples/ci360-events-to-db-agent
+cd /sas/software/ci360-direct-samples/ci360-events-to-db-agent
 /sas/software/apache-maven-3.9.6/bin/mvn install:install-file -Dfile="sdk/mkt-agent-sdk-jar-2.2311.2309271430.jar" -DpomFile="sdk/pom.xml"
 ./gradlew build
 echo $(date '+%Y-%m-%d %H:%M:%S')

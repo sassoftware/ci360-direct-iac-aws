@@ -5,7 +5,7 @@ locals {
 
   # General
   security_group_id         = var.security_group_id == null ? aws_security_group.sg[0].id : data.aws_security_group.sg[0].id
-  default_tags              = { project_name = "ci-engage" }
+  default_tags              = { project_name = "ci360-direct-fullcloud" }
   tags                      = var.tags == null ? local.default_tags : length(var.tags) == 0 ? local.default_tags : var.tags
 
   # CIDRs

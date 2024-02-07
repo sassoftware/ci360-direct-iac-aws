@@ -35,7 +35,7 @@ function processSDMTemplates()
 }
 
 
-echo "SAS Customer Intelligence 360 - Engage Direct - AWS AMI Configuration Utility - START"
+echo "SAS Customer Intelligence 360 - Direct - AWS AMI Configuration Utility - START"
 
 
 echo "${AMILOGMESSAGE}\n************************************"
@@ -104,5 +104,5 @@ rm -rf $SAS_CONFIG_DIR/Lev1/Web/activemq/data/*
 echo "Starting SAS Servers....."
 $SAS_CONFIG_DIR/Lev1/sas.servers start
 
-echo "SAS Customer Intelligence 360 - Engage Direct - AWS AMI Configuration Utility - END"
+echo "SAS Customer Intelligence 360 - Direct - AWS AMI Configuration Utility - END"
 

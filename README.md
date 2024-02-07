@@ -1,4 +1,4 @@
-# FullCloud CI360 Direct Engage IaC
+# FullCloud CI360 Direct IaC
 
 ## Overview
 

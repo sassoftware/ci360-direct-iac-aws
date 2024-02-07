@@ -5,7 +5,7 @@
 variable "prefix" {
   description = "A prefix used in the name for all cloud resources created by this script. The prefix string must start with a lowercase letter and contain only alphanumeric characters and hyphens or dashes (-), but cannot start or end with '-'."
   type        = string
-  default     = "ci-engage"
+  default     = "ci360-direct-fullcloud"
 
   validation {
     condition     = can(regex("^[a-z][-0-9a-z]*[0-9a-z]$", var.prefix))
@@ -73,7 +73,7 @@ variable "ssh_public_key" {
 variable "tags" {
   description = "Map of common tags to be placed on the resources."
   type        = map(any)
-  default     = { project_name = "ci-engage" }
+  default     = { project_name = "ci360-direct-fullcloud" }
 }
 
 # Networking
