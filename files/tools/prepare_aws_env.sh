@@ -4,10 +4,10 @@
 
 echo $(date '+%Y-%m-%d %H:%M:%S')
 
-${BASH_SOURCE%/*}/copy_ami.sh
-echo $(date '+%Y-%m-%d %H:%M:%S')
+# ${BASH_SOURCE%/*}/copy_ami.sh
+# echo $(date '+%Y-%m-%d %H:%M:%S')
 
-export TF_VAR_winclient_vm_ami_id="$(aws ec2 describe-images --filters 'Name=name,Values=sas-ci360-ed-windows-v1.0' --output text --query 'Images[0].ImageId')"
+# export TF_VAR_winclient_vm_ami_id="$(aws ec2 describe-images --filters 'Name=name,Values=sas-ci360-ed-windows-v1.0' --output text --query 'Images[0].ImageId')"
 
 terraform init
 terraform plan -out ci360-direct-fullcloud.plan
