@@ -12,6 +12,9 @@ echo 'create schema cdm;create schema cmdm;' | psql -h ${PG_ADDRESS} -p 5432 "db
 
 echo $(date '+%Y-%m-%d %H:%M:%S')
 echo "Running SAS init..."
+sed -i -e "28 i export MAS_M2PATH=${SAS_HOME_DIR}/SASFoundation/9.4/misc/tkmas/mas2py.py" \
+    -e "28 i export MAS_PYPATH=/usr/bin/python" \
+    ${SAS_HOME_DIR}/SASFoundation/9.4/bin/sasenv_local
 ${SAS_HOME_DIR}/SASPlatformObjectFramework/9.4/ImportPackage -target / -package /sas/amiautomation/packages/dbserver.spk \
     -host localhost -port 8561 -user sasadm@saspw -password ${META_PASS} -disableX11
 ${SAS_HOME_DIR}/SASPlatformObjectFramework/9.4/SetPassword -metaServer localhost -metaPort 8561 \
