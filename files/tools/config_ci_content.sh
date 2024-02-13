@@ -120,6 +120,14 @@ sed -i -e "s/^\s*ci360.gatewayHost=.*$/ci360.gatewayHost=${CI_360_GW_HOST}/g" \
 curl -O https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.tar.gz
 tar xzvf apache-maven-3.9.6-bin.tar.gz
 cd /sas/software/ci360-direct-samples/ci360-events-to-db-agent
-/sas/software/apache-maven-3.9.6/bin/mvn install:install-file -Dfile="sdk/mkt-agent-sdk-jar-2.2311.2309271430.jar" -DpomFile="sdk/pom.xml"
+curl -L -s https://${CI_360_GW_HOST}/marketingGateway/agent -o mkt-agent-sdk.zip
+unzip -d /sas/software/ci360-direct-samples/ci360-events-to-db-agent mkt-agent-sdk.zip
+rm -f mkt-agent-sdk.zip
+Dfile=(/sas/software/ci360-direct-samples/ci360-events-to-db-agent/mkt-agent-sdk-*/lib/mkt-agent-sdk-jar-*.jar)
+DpomFile=(/sas/software/ci360-direct-samples/ci360-events-to-db-agent/mkt-agent-sdk-*/sdk/pom.xml)
+/sas/software/apache-maven-3.9.6/bin/mvn install:install-file \
+    -Dfile=${Dfile[0]} \
+    -DpomFile=${DpomFile[0]}
 ./gradlew build
+
 echo $(date '+%Y-%m-%d %H:%M:%S')
