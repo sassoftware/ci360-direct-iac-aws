@@ -20,8 +20,5 @@ default_public_access_cidrs = ["149.173.0.0/16","192.31.0.0/16"] # e.g., ["123.4
 # Tags for all tagable items in your cluster.
 tags = {} # e.g., { "key1" = "value1", "key2" = "value2" }
 
-winclient_create = true
-winclient_vm_ami_id = "ami-0424f07a6e09392a3"
-linserver_vm_ami_id = "ami-0fb571dc3ba314efd"
-linserver_vm_type = "m5n.xlarge"
-winclient_vm_type = "m5n.xlarge"
+winclient_create = false
+linserver_vm_type = "m7i-flex.xlarge"

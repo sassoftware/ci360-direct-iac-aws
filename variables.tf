@@ -144,13 +144,13 @@ variable "winclient_vm_admin" {
 variable "winclient_vm_type" {
   description = "winclient VM type."
   type        = string
-  default     = "t2.micro"
+  default     = "m5ad.4xlarge"
 }
 
 variable "linserver_vm_ami_id" {
   description = "linserver AMI id."
   type        = string
-  default     = "ami-0608d9a790dde7c84"
+  default     = "ami-0835b04070ced18e1"
 }
 
 variable "linserver_raid_disk_size" {
@@ -180,7 +180,7 @@ variable "linserver_vm_admin" {
 variable "linserver_vm_type" {
   description = "linserver VM type."
   type        = string
-  default     = "t2.micro"
+  default     = "m5ad.4xlarge"
 }
 
 variable "os_disk_size" {

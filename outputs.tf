@@ -2,15 +2,15 @@
 # SPDX-License-Identifier: Apache-2.0
 
 output "winclient_private_dns" {
-  value = module.winclient[0].private_dns
+  value = var.winclient_create ? module.winclient[0].private_dns : null
 }
 
 output "winclient_public_dns" {
-  value = module.winclient[0].public_dns
+  value = var.winclient_create ? module.winclient[0].public_dns : null
 }
 
 output "winclient_public_ip" {
-  value = module.winclient[0].public_ip_address
+  value = var.winclient_create ? module.winclient[0].public_ip_address : null
 }
 
 output "linserver_instance_id" {
