@@ -27,7 +27,7 @@ This project consists of two parts:
 
 #### Architecture Diagram
 
-![](<docs/img/CI Direct Engage AWS automation.png>)
+![architecture diagram](docs/img/architecture.png)
 
 #### Config for SAS
  - Copy ./files/custom-data/config.txt.example to ./files/custom-data/config.txt and set appropriate config variables
