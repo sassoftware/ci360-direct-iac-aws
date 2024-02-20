@@ -14,6 +14,7 @@ This project consists of two parts:
  - Make sure that both aws and terraform are accessible from command line
  - AWS user with admin policies
  - Valid SAS license
+ - Subscribe to the AMI in AWS [here](https://aws.amazon.com/marketplace/pp/prodview-uuhkhdcj4mka6?sr=0-1&ref_=beagle&applicationId=AWSMPContessa).
 
 ### Installation
 
@@ -22,6 +23,11 @@ This project consists of two parts:
 
 #### Config for terraform
  - Put your config ovverrides in ./terraform.tfvars (Available variables are described in ./variables.tf)
+
+
+#### Architecture Diagram
+
+![](<docs/img/CI Direct Engage AWS automation.png>)
 
 #### Config for SAS
  - Copy ./files/custom-data/config.txt.example to ./files/custom-data/config.txt and set appropriate config variables
