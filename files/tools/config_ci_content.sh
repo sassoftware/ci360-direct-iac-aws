@@ -130,6 +130,7 @@ DpomFile=(/sas/software/ci360-extensions/code/ci360-events-to-db-agent/mkt-agent
 /sas/software/apache-maven-3.9.6/bin/mvn install:install-file \
     -Dfile=${Dfile[0]} \
     -DpomFile=${DpomFile[0]}
+chmod +x gradlew
 ./gradlew build
 
 echo $(date '+%Y-%m-%d %H:%M:%S')
